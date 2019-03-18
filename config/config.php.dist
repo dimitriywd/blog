@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * CONFIGURATION
+ */
+const DB_SGBD = 'mysql';
+const DB_SGBD_URL = 'localhost';
+const DB_DATABASE = 'dimitriywd_blog';
+const DB_CHARSET = 'utf8';
+const DB_USER = 'dimitriywd';
+const DB_PASSWORD = 'NjM1MjNiMTM1ZDI5YmE5ZWFjODQ1NGI53Wa!';
+
+//Répertoire chemin complet vers le blog (pour l'upload)
+define('UPLOADS_DIR', realpath(dirname(__FILE__)."/../").'/img/uploads/');
+
+//URL complète vers le répertoire upload (pour l'affichage des images dans l'HTML)
+const UPLOADS_URL      = 'http://dimitriywd.sites.pixelsass.fr/php/blog/img/uploads/';

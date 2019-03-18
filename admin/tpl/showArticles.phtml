@@ -1,0 +1,36 @@
+
+<h1>Liste des articles</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Id Article</td>
+      <td>Action</td>
+      <td>Titre</td>
+      <td>Image</td>
+      <td>Id auteur</td>
+      <td>Date</td>
+      <td>Contenu</td>
+    </tr>
+    
+  </thead>
+  <tbody>
+    <?php $articleId=0?>
+    <?php foreach($articles as $article):?>
+      <input type="hidden" name="id" value="<?=$articleId?>">
+      <tr>
+        <td><?= $article['a_id']?></td>
+        <td><a href="editArticle.php?id=<?=$article['a_id']?>">Editer</a><br/><a href="delArticle.php?id=<?=$article['a_id']?>">Suppr</a></td>
+        <td><?= $article['a_title']?><?php $articleTitle = $article['a_title']?></td>
+        <td>
+          <?php if($article['a_picture'] !==''):?>
+            <img src="<?= $imagePath .$article['a_picture']?>" alt="">
+          <?php endif;?>
+          </td>
+        <td><?= $article['a_author']?></td>
+        <td><?= $article['a_date_published']?></td>
+        <td><?= $article['a_content']?></td>
+      </tr>
+      <?php $articleId++?>
+    <?php endforeach;?>
+  </tbody>
+</table>

@@ -1,0 +1,67 @@
+<div class="container">
+
+    <?php if (isset($pwdNotSame)): ?>
+        <p class="alert-warning">Vos mots de passe ne correspondent pas</p>
+    <?php endif; ?>
+    <?php if (isset($emptyFields)): ?>
+        <p class="alert-warning">Veuillez remplir tous les champs</p>
+    <?php endif; ?>
+    <?php if (isset($userAdded)): ?>
+        <p class="alert-good">L'utilisateur a bien été ajouté</p>
+    <?php endif; ?>
+        <?php if (isset($duplicateEmail)): ?>
+        <p class="alert-warning">Cet email existe déjà. Veuillez saisir une autre adresse</p>
+    <?php endif; ?>
+    
+    
+    <form action="
+    <?php if(isset($editUser)): ?>editUser.php
+    <?php else:?>addUser.php
+    <?php endif;?>" method="POST">
+      
+    <?php if(isset($editUser)): ?> 
+      <input type="hidden" name="userId" value="<?=$userId?>"> 
+    <?php endif; ?>
+      
+      <fieldset>
+        <legend><?= $pageTitle ?></legend>
+        
+        <div>
+          <label for="userFirstname">Prénom :</label>
+          <input class="form-control form-control-lg" type="text" name="userFirstname" value="<?=$userFirstname?>">
+        </div>
+        
+        <div>
+          <label for="userLastname">Nom :</label>
+          <input class="form-control form-control-lg" type="text" name="userLastname" value="<?=$userLastname?>">
+        </div>
+        
+        <div>
+          <label for="userEmail">Adresse email :</label>
+          <input class="form-control form-control-lg" type="email" name="userEmail" value="<?=$userEmail?>">
+        </div>
+        
+        <?php if(!isset($editUser)):?>
+          <div>
+            <label for="userPassword">Mot de passe :</label>
+            <input class="form-control form-control-lg" type="password" name="userPassword">
+          </div>
+          
+          <div>
+            <label for="userPasswordConfirm">Confirmez votre mot de passe :</label>
+            <input class="form-control form-control-lg" type="password" name="userPasswordConfirm">
+          </div>
+        <?php endif;?>
+      
+        <div class="form-group">
+          <label for="$userRole">Rôle :</label>
+          <select class="form-control" id="userRole" name="userRole" value="<?=$userRole?>">
+            <option value="admin">Administrateur</option>
+            <option value="author">Auteur</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" name="valider" value="Valider">Valider</button>
+      </fieldset>
+    </form>
+</div>

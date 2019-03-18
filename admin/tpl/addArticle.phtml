@@ -1,0 +1,69 @@
+<form enctype="multipart/form-data" action="
+<?php if(!isset($editArt)): ?>addArticle.php
+<?php else:?>editArticle.php
+<?php endif;?>" method="POST">
+
+  <?php if(isset($editArt)): ?>  
+      <input type="hidden" name="articleId" value="<?=$articleId?>">
+  <?php endif;?>
+  <fieldset>
+    <legend><?= $pageTitle ?></legend>
+    <div>
+      <label for="articleTitle">Titre :</label>
+      <input class="form-control form-control-lg" type="text" name="articleTitle" value="<?=$articleTitle?>">
+    </div>
+    <div class="form-group">
+      <label for="category">Catégorie :</label>
+      <select class="form-control" id="category" name="articleCategory" value="<?=$articleCategory?>" >
+        <?php foreach($categories as $categorie):?>
+          <option value="<?= $categorie['c_id'] ?>"><?=$categorie['c_title']?></option>
+        <?php endforeach;?>
+      </select>
+    </div>
+    <div class="form-group row">
+      <label for="date" class="col-sm-2 col-form-label">Date et heure de publication</label>
+      <div class="col-8">
+        <input type="date" class="form-control" id="date" name="articleDate" value="<?=$articleDate?>">
+      </div>
+      <div class="col-2">
+        <input type="time" class="form-control" id="time" name="articleTime"  value="<?=$articleTime?>">
+      </div>
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputFile">Image</label>
+      <input type="file" class="form-control-file" id="InputFile" aria-describedby="fileHelp" name="articleImage">
+      <?php if (isset($Pic)): ?>
+        <img src="<?= $imagePath .$articlePicture?>" alt="">
+      <?php endif; ?>
+        <input type="hidden" name="old-InputFile" value="">
+
+    </div>
+    <div class="form-group">
+      <label for="exampleTextarea">Contenu :</label>
+      <textarea class="form-control" id="exampleTextarea" name="articleContent" rows="3"><?=$articleContent?></textarea>
+    </div>
+    <?php if(!isset($editArt)): ?>
+      <button type="submit" class="btn btn-primary" id="submitCreate" name="submitCreate" value="submitCreate">Valider</button>
+    <?php else:?>
+      <button type="submit" class="btn btn-primary" id="submitEdit" name="submitEdit" value="submitEdit">Valider les modifications</button>
+    <?php endif;?>
+  </fieldset>
+</form>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+</script>
+<script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+          locale: 'fr'
+        });
+        
+        tinymce.init({ selector:'textarea' });
+    });
+</script>

@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Liste des utilisateurs</h1>
+  <table>
+    <thead>
+      <tr>
+        <td>Action</td>
+        <td>Actif</td>
+        <td>Nom</td>
+        <td>Prénom</td>
+        <td>Mail</td>
+        <td>Rôle</td>
+      </tr>
+      
+  
+    </thead>
+    <tbody>
+      <?php $userId=0?>
+      <?php foreach($users as $user):?>
+        <input type="hidden" name="id" value="<?=$userId?>">
+        <tr>
+          <td><a href="editUser.php?id=<?=$user['u_id']?>">Editer</a><br/><a href="delUser.php?id=<?=$user['u_id']?>">Suppr</a></td>
+          <!-- Si la valeur de "u_valide" est n'est pas égale à 1, alors l'utilisateur n'est pas actif -->
+          <?php if($user['u_valide'] !=='1'):?>
+             <?php $userValide='Non'?>
+          <?php else:?>
+              <?php $userValide='Oui'?>
+          <?php endif;?>
+          <td><?=$userValide?></td>
+          <td><?= $user['u_firstname']?></td>
+          <td><?= $user['u_lastname']?></td>
+          <td><?= $user['u_email']?></td>
+          <td><?= $user['u_role']?></td>
+        </tr>
+        <?php $userId++?>
+      <?php endforeach;?>
+    </tbody>
+  </table>
+</div>

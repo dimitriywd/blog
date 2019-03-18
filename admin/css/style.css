@@ -1,0 +1,34 @@
+#exampleInputFile{
+    width:30%;
+}
+
+h1{
+    padding-bottom : 30px;
+}
+
+th, tr, td{
+    border: 1px solid;
+    margin: 50px;
+    padding: 0px 50px;
+    text-align: center;
+}
+
+iMg {
+    width: 100px;
+}
+
+.alert-warning {
+    color:white;
+    padding: 20px;
+    background-color:#ef7a09;
+}
+
+.alert-good {
+    color:white;
+    padding: 20px;
+    background-color:#459b34;
+}
+
+.container {
+    margin:50px;
+}
