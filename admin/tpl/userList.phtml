@@ -1,4 +1,8 @@
 <div class="container">
+  <?php if (isset($userAdded)): ?>
+    <p class="alert-good">L'utilisateur a bien été ajouté</p>
+  <?php endif; ?>
+  
   <h1>Liste des utilisateurs</h1>
   <table>
     <thead>

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include('../config/config.php');
 $vue = 'showArticles.phtml';
 $imagePath = 'http://dimitriywd.sites.pixelsass.fr/PHP/Exercices/php1-5-blog/img/uploads/';

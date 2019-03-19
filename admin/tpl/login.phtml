@@ -1,0 +1,23 @@
+<div "container">
+    <h1>Page de connexion</h1>
+    <?php if(isset($badLogin)): ?>
+        <p>Login ou mot de passe incorrect</p>
+    <?php endif; ?>
+    <form action = "../login.php" method="POST">
+    <fieldset>
+        <legend>Veuillez vous connecter</legend>
+         <div>
+            <label for="userEmail">Adresse email :</label>
+            <input class="form-control form-control-lg" type="email" name="userEmail">
+        </div>
+        
+        <div>
+            <label for="userPassword">Mot de passe :</label>
+            <input class="form-control form-control-lg" type="password" name="userPassword">
+        </div>
+        <button type="submit" class="btn btn-primary" name="valider" value="Valider">Valider</button>
+     
+      </fieldset>
+      
+    </form>
+</div>

@@ -1,54 +1,56 @@
-<form enctype="multipart/form-data"  action="addArticle.php" method="POST">
-  <fieldset>
-    <legend>Modifier l'article</legend>
-    <div>
-      <label for="articleTitle">Titre :</label>
-      <input class="form-control form-control-lg" type="text" name="articleTitle" value="<?=$articleTitle?>">
-    </div>
-    <div class="form-group">
-      <label for="category">Catégorie :</label>
-      <select class="form-control" id="category" name="articleCategory">
-        <?php foreach($categories as $categorie):?>
-          <option value="<?= $categorie['c_id'] ?>"><?=$categorie['c_title']?></option>
-        <?php endforeach;?>
-      </select>
-    </div>
-    <div class="form-group row">
-      <label for="date" class="col-sm-2 col-form-label">Date et heure de publication</label>
-      <div class="col-8">
-        <input type="date" class="form-control" id="date" name="articleDate" value="<?=$articleDate?>">
+<div class="container">
+  <form enctype="multipart/form-data"  action="addArticle.php" method="POST">
+    <fieldset>
+      <legend>Modifier l'article</legend>
+      <div>
+        <label for="articleTitle">Titre :</label>
+        <input class="form-control form-control-lg" type="text" name="articleTitle" value="<?=$articleTitle?>">
       </div>
-      <div class="col-2">
-        <input type="time" class="form-control" id="time" name="articleTime"  value="<?=$articleTime?>">
+      <div class="form-group">
+        <label for="category">Catégorie :</label>
+        <select class="form-control" id="category" name="articleCategory">
+          <?php foreach($categories as $categorie):?>
+            <option value="<?= $categorie['c_id'] ?>"><?=$categorie['c_title']?></option>
+          <?php endforeach;?>
+        </select>
       </div>
-      
-    </div>
-    <div class="form-group">
-      <label for="exampleInputFile">Image</label>
-      <input type="file" class="form-control-file" id="InputFile" aria-describedby="fileHelp" name="articleImage">
-
-    </div>
-    <div class="form-group">
-      <label for="exampleTextarea">Contenu :</label>
-      <textarea class="form-control" id="exampleTextarea" name="articleContent" rows="3"><?=$articleContent?></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary" name="valider" value="Valider">Valider</button>
-  </fieldset>
-</form>
-
-
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker1').datetimepicker();
-    });
-</script>
-<script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker1').datetimepicker({
-          locale: 'fr'
-        });
+      <div class="form-group row">
+        <label for="date" class="col-sm-2 col-form-label">Date et heure de publication</label>
+        <div class="col-8">
+          <input type="date" class="form-control" id="date" name="articleDate" value="<?=$articleDate?>">
+        </div>
+        <div class="col-2">
+          <input type="time" class="form-control" id="time" name="articleTime"  value="<?=$articleTime?>">
+        </div>
         
-        tinymce.init({ selector:'textarea' });
-    });
-</script>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputFile">Image</label>
+        <input type="file" class="form-control-file" id="InputFile" aria-describedby="fileHelp" name="articleImage">
+  
+      </div>
+      <div class="form-group">
+        <label for="exampleTextarea">Contenu :</label>
+        <textarea class="form-control" id="exampleTextarea" name="articleContent" rows="3"><?=$articleContent?></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" name="valider" value="Valider">Valider</button>
+    </fieldset>
+  </form>
+  
+  
+  <script type="text/javascript">
+      $(function () {
+          $('#datetimepicker1').datetimepicker();
+      });
+  </script>
+  <script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
+  <script type="text/javascript">
+      $(function () {
+          $('#datetimepicker1').datetimepicker({
+            locale: 'fr'
+          });
+          
+          tinymce.init({ selector:'textarea' });
+      });
+  </script>
+</div>

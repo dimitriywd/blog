@@ -2,23 +2,22 @@
 session_start();
 include('../config/config.php');
 
-$vue = 'showArticles.phtml';
+$vue = 'userList.phtml';
 
 try { 
     if (array_key_exists('id', $_GET)){
-        $articleId = $_GET['id']; 
+        $userId = $_GET['id']; 
         
         // Connexion à la BDD  
         $dbh = new PDO(DB_SGBD.':host='.DB_SGBD_URL.';dbname='.DB_DATABASE.';charset='.DB_CHARSET, DB_USER, DB_PASSWORD);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         //Suppression es données en base selon l'ID
-        $sth = $dbh->prepare ('DELETE FROM b_article WHERE a_id=:a_id');
-        $sth->bindValue(':a_id', $articleId, PDO::PARAM_INT);
+        $sth = $dbh->prepare ('DELETE FROM b_user WHERE u_id=:u_id');
+        $sth->bindValue(':u_id', $userId, PDO::PARAM_INT);
         $sth->execute(); 
-        echo('article id :' .$articleId);
         
-        header('Location:showArticles.php');
+        header('Location:userList.php');
         exit();
     }
 
